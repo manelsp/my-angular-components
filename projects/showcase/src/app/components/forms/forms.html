@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+  <!-- Input -->
+  <my-components-input 
+    controlName="email"
+    label="Email"
+    placeholder="Introduce tu email"
+    type="email"
+  >
+    <span error>El email es obligatorio y debe ser válido</span>
+  </my-components-input>
+
+  <!-- Numeric input -->
+  <my-components-input-number
+    controlName="quantity"
+    label="Cantidad"
+    [min]="1"
+    [max]="10"
+    placeholder="Ingresa cantidad"
+  >
+    <span error>La cantidad debe estar entre 1 y 10</span>
+  </my-components-input-number>
+</form>

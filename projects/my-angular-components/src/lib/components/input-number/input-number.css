@@ -1,0 +1,39 @@
+@import './../../styles/variables.css';
+
+.numeric-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-family: var(--font-family, Arial, sans-serif);
+}
+
+.numeric-input-wrapper label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-gray-900, #222);
+}
+
+.numeric-input-wrapper input[type="text"] {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-gray-400, #ccc);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--color-gray-800, #333);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.numeric-input-wrapper input[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-primary, #007bff);
+  box-shadow: 0 0 6px var(--color-primary-light, #66b2ff);
+}
+
+.numeric-input-wrapper.invalid input[type="text"] {
+  border-color: var(--color-error, #e74c3c);
+}
+
+.numeric-input-wrapper .error {
+  margin-top: 0.3rem;
+  font-size: 0.875rem;
+  color: var(--color-error, #e74c3c);
+}

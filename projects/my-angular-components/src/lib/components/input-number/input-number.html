@@ -1,0 +1,19 @@
+<div class="numeric-input-wrapper" [class.invalid]="control.invalid && (control.dirty || control.touched)">
+    @if(label) {
+    <label>{{ label }}</label>
+    }
+
+    <input 
+    type="text" 
+    [attr.placeholder]="placeholder" 
+    [formControl]="control"
+    [attr.min]="min" 
+    [attr.max]="max"
+    (input)="onInputChange($event)" />
+
+    @if(control.invalid && (control.dirty || control.touched)){
+    <div class="error">
+        <ng-content select="[error]"></ng-content>
+    </div>
+    }
+</div>

@@ -1,0 +1,21 @@
+<button class="button" 
+[ngClass]="[variant, size !== 'medium' ? size : '', loading ? 'loading' : '']"
+[disabled]="disabled || loading">
+  
+  @if(loading){
+  <span class="spinner"></span>
+  }
+
+  @if(iconStart && !loading) {
+  <i class="button-icon start" [ngClass]="iconStart"></i>
+  }
+
+  <span class="button-text">
+    <ng-content></ng-content>
+  </span>
+
+  @if(iconEnd && !loading) {
+  <i class="button-icon end" [ngClass]="iconEnd"></i>
+  }
+
+</button>

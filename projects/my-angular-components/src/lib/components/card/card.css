@@ -1,0 +1,47 @@
+@import './../../styles/variables.css';
+
+.card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-300);
+    color: var(--color-gray-800);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: block;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.card-header {
+    margin-bottom: 0.75rem;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+}
+
+.card-header small {
+    color: var(--color-gray-600);
+}
+
+.card-content {
+    font-size: 1rem;
+    color: var(--color-gray-700);
+}
+
+.card:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}

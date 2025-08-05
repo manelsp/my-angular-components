@@ -12,6 +12,7 @@
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   user-select: none;
+  font-family: var(--font-family);
 }
 
 .button:disabled {
@@ -29,13 +30,22 @@
   background-color: var(--color-primary-dark);
 }
 
-.button.secondary {
+.button.info {
   background-color: var(--color-gray-200);
   color: var(--color-gray-800);
 }
 
-.button.secondary:hover:not(:disabled) {
+.button.info:hover:not(:disabled) {
   background-color: var(--color-gray-300);
+}
+
+.button.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.button.secondary:hover:not(:disabled) {
+  background-color: var(--color-secondary-dark);
 }
 
 .button.success {
@@ -44,7 +54,7 @@
 }
 
 .button.success:hover:not(:disabled) {
-  background-color: #218838;
+  background-color: var(--color-success-dark);
 }
 
 .button.error {
@@ -53,7 +63,7 @@
 }
 
 .button.error:hover:not(:disabled) {
-  background-color: #bd2130;
+  background-color: var(--color-error-dark);
 }
 
 /* Tamaños */

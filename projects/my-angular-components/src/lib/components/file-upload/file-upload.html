@@ -1,0 +1,37 @@
+<div class="input-wrapper" [class.invalid]="control.invalid && (control.dirty || control.touched)">
+    @if(label) {
+    <label>{{ label }}</label>
+    }
+
+    <input type="file" [attr.accept]="accept" [attr.multiple]="multiple ? true : null"
+        (change)="onFileSelected($event)" />
+
+    @if(previews.length > 0){
+    <div class="previews">
+        @for (src of previews; track $index; let i = $index) {
+        <div class="preview-item">
+            <img [src]="src" alt="Imagen seleccionada" />
+            <button type="button" class="remove-btn" (click)="removeFile(i)">✕</button>
+        </div>
+        }
+    </div>
+    }
+
+    @if(!previews.length && control.value && !multiple){
+    <div class="file-name">
+        Archivo seleccionado: {{ fileName }}
+    </div>
+    }
+
+    @if(control.value && multiple && !previews.length){
+    <div class="file-name">
+        {{ fileCount }} archivos seleccionados
+    </div>
+    }
+
+    @if(control.invalid && (control.dirty || control.touched)){
+    <div class="error">
+        <ng-content select="[error]"></ng-content>
+    </div>
+    }
+</div>

@@ -42,4 +42,7 @@
   --color-info-light: #93c5fd;
   --color-info:       #3b82f6;
   --color-info-dark:  #1e40af;
+
+  /* Fonts */
+  --font-family: 'Inter', 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }

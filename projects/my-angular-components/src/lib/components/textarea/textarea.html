@@ -1,0 +1,17 @@
+<div class="input-wrapper" [class.invalid]="control.invalid && (control.dirty || control.touched)">
+  @if(label){
+    <label>{{ label }}</label>
+  }
+
+  <textarea
+    [formControl]="control"
+    [attr.placeholder]="placeholder"
+    [rows]="rows"
+  ></textarea>
+
+  @if(control.invalid && (control.dirty || control.touched)){
+    <div class="error">
+      <ng-content select="[error]"></ng-content>
+    </div>
+  }
+</div>

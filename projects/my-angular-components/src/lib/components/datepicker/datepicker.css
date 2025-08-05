@@ -1,19 +1,19 @@
 @import './../../styles/variables.css';
 
-.numeric-input-wrapper {
+.input-wrapper {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
   font-family: var(--font-family, Arial, sans-serif);
 }
 
-.numeric-input-wrapper label {
+.input-wrapper label {
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: var(--color-gray-900);
 }
 
-.numeric-input-wrapper input[type="text"] {
+.input-wrapper input[type="date"] {
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--color-gray-300);
   border-radius: 6px;
@@ -22,18 +22,18 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.numeric-input-wrapper input[type="text"]:focus {
+.input-wrapper input[type="date"]:focus {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 6px var(--color-primary-light);
 }
 
-.numeric-input-wrapper.invalid input[type="text"] {
+.input-wrapper.invalid input[type="date"] {
   border-color: var(--color-error);
 }
 
-.numeric-input-wrapper .error {
-  margin-top: 0.3rem;
-  font-size: 0.875rem;
+.error {
   color: var(--color-error);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }

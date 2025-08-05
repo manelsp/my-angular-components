@@ -1,0 +1,19 @@
+<div class="dropdown-wrapper" [class.invalid]="control.invalid && (control.dirty || control.touched)">
+    @if(label){
+    <label>{{ label }}</label>
+    }
+
+    <select [formControl]="control">
+        <option value="" disabled selected hidden>{{ placeholder }}</option>
+        @for (option of options; track option.value) {
+        <option [value]="option.value">{{ option.label }}</option>
+        }
+    </select>
+
+    @if(control.invalid && (control.dirty || control.touched)){
+    <div class="error">
+        <ng-content select="[error]"></ng-content>
+    </div>
+    }
+
+</div>

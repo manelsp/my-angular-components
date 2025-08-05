@@ -3,4 +3,9 @@ export * from './lib/components/chip/chip';
 export * from './lib/components/button/button';
 export * from './lib/components/footer/footer';
 export * from './lib/components/input/input';
-
+export * from './lib/components/input-number/input-number';
+export * from './lib/components/dropdown/dropdown';
+export * from './lib/components/textarea/textarea';
+export * from './lib/components/checkbox/checkbox';
+export * from './lib/components/datepicker/datepicker';
+export * from './lib/components/file-upload/file-upload';

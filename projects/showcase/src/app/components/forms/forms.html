@@ -19,4 +19,53 @@
   >
     <span error>La cantidad debe estar entre 1 y 10</span>
   </my-components-input-number>
+
+  <!-- Dropdown -->
+  <my-components-dropdown
+    controlName="country"
+    label="País"
+    [options]="countryOptions"
+    placeholder="Selecciona un país"
+  >
+    <span error>El país es obligatorio</span>
+  </my-components-dropdown>
+
+  <!-- Datepicker -->
+  <my-components-datepicker
+    controlName="birthdate"
+    label="Fecha de nacimiento"
+    placeholder="Selecciona tu fecha"
+  >
+    <span error>La fecha es obligatoria</span>
+  </my-components-datepicker>
+
+  <!-- Textarea -->
+   <my-components-textarea 
+    controlName="description"
+    label="Descripción"
+    placeholder="Escribe una descripción..."
+    [rows]="5"
+  >
+    <span error>La descripción es obligatoria</span>
+  </my-components-textarea>
+
+  <!-- Checkbox -->
+    <my-components-checkbox 
+      controlName="acceptTerms"
+      label="Acepto los términos y condiciones"
+  >
+    <span error>Debes aceptar los términos</span>
+  </my-components-checkbox>
+
+  <!-- FileUpload -->
+  <my-components-file-upload
+    controlName="photos"
+    label="Sube imágenes"
+    accept="image/*"
+    [multiple]="true"
+  >
+    <span error>Debes subir al menos una imagen.</span>
+  </my-components-file-upload>
+
+  <my-components-button (click)="sendForm()">Enviar Form</my-components-button>
 </form>

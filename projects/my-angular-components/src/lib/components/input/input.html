@@ -6,7 +6,9 @@
     [formControl]="control"
     [attr.placeholder]="placeholder"
     [type]="type"
+    [name]="autocomplete"
   />
+  
   @if(control.invalid && (control.dirty || control.touched)) {
   <div class="error" >
     <ng-content select="[error]"></ng-content>

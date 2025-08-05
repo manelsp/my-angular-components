@@ -1,0 +1,14 @@
+@if(visible){
+<div class="message" [ngClass]="type">
+    <div class="content">
+        @if(title){
+        <div class="title">{{ title }}</div>
+        }
+        <div class="body"><ng-content></ng-content></div>
+    </div>
+
+    @if(closable){
+    <button class="close-button" (click)="close()">&times;</button>
+    }
+</div>
+}

@@ -9,34 +9,103 @@
 <hr>
 <app-forms></app-forms>
 
-<h2>Buttons</h2>
-<hr>
-
-<!-- Buttons -->
-<div class="flex-h">
-    <my-components-button variant="primary">Primary Button</my-components-button>
-    <my-components-button variant="error">Error Button</my-components-button>
-    <my-components-button variant="secondary" size="small">Small Secondary</my-components-button>
-    <my-components-button variant="success" size="large">Large Success</my-components-button>
-    <my-components-button variant="error" [disabled]="true">Disabled Error</my-components-button>
-    <my-components-button variant="error" [loading]="true"> Deleting... </my-components-button>
-</div>
-
 <h2>Chips</h2>
 <hr>
 
 <!-- Chips -->
 <div class="flex-h">
-    <my-components-chip label="Etiqueta Default"></my-components-chip>
-    <my-components-chip label="Primary Chip" color="primary"></my-components-chip>
-    <my-components-chip label="Success Chip" color="success" size="large"></my-components-chip>
-    <my-components-chip label="Error Small" color="error" size="small"></my-components-chip>
+  <my-components-chip label="Etiqueta Default"></my-components-chip>
+  <my-components-chip label="Primary Chip" color="primary"></my-components-chip>
+  <my-components-chip label="Success Chip" color="success" size="large"></my-components-chip>
+  <my-components-chip label="Error Small" color="error" size="small"></my-components-chip>
 </div>
 
+<h2>Buttons</h2>
+<hr>
+
+<!-- Buttons -->
+<div class="flex-h">
+  <my-components-button variant="primary">Primary Button</my-components-button>
+  <my-components-button variant="error">Error Button</my-components-button>
+  <my-components-button variant="secondary" size="small">Small Secondary</my-components-button>
+  <my-components-button variant="success" size="large">Large Success</my-components-button>
+  <my-components-button variant="error" [disabled]="true">Disabled Error</my-components-button>
+  <my-components-button variant="error" [loading]="true"> Deleting... </my-components-button>
+</div>
+
+<!-- miscelania -->
+<h2>Miscelania</h2>
+<hr>
+
+<!-- Badges -->
+ <h3>Badges</h3>
+
+<my-components-counter-badge [count]="5">
+  <img [src]="'icons/Cart.svg'" width="35px" height="35px" />
+</my-components-counter-badge>
+
+<!-- Avatar -->
+<h3>Avatars</h3>
+
+<div class="flex-h">
+  <my-components-avatar 
+    [name]="'Ana María'" 
+    size="small" 
+    [border]="false">
+  </my-components-avatar>
+
+    <my-components-avatar 
+    [name]="'Ana María'" 
+    size="medium" 
+    [border]="false">
+  </my-components-avatar>
+
+    <my-components-avatar 
+    [src]="'images/avatar.png'" 
+    [name]="'Ana María'" 
+    size="large" 
+    [border]="true">
+  </my-components-avatar>
+  
+</div>
+
+<!-- Messages -->
+ <h3>Messages</h3>
+
+<my-components-message type="success" title="Éxito" [closable]="true">
+  Tu operación se realizó correctamente.
+</my-components-message>
+
+<my-components-message  type="error" title="Error">
+  Hubo un problema al procesar tu solicitud.
+</my-components-message>
+
+<my-components-message type="warning" title="Warning" [closable]="true">
+  Tu operación tiene warnings.
+</my-components-message>
+
+<my-components-message type="info" title="Info">
+  Complete la operación.
+</my-components-message>
+
+<!-- Toasts -->
+
+<!-- Table -->
+ <h2>Table</h2>
+<hr>
+
+<my-components-table 
+  [columns]="columns" 
+  [data]="data"
+  (rowClick)="onRowSelected($event)">
+</my-components-table>
+
+<!-- Header -->
+
+<!-- Footer -->
 <h2>Footer</h2>
 <hr>
 
-<!-- footer -->
 <my-components-footer [copyright]="'2025 My Company'">
   <div footer-left>
     <h4>Sobre Nosotros</h4>
@@ -45,8 +114,8 @@
 
   <div footer-center>
     <h4>Links</h4>
-      <p routerLink="/legal">Aviso Legal</p>
-      <p routerLink="/cookies">Política de Cookies</p>
+    <p routerLink="/legal">Aviso Legal</p>
+    <p routerLink="/cookies">Política de Cookies</p>
   </div>
 
   <div footer-right>

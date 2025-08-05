@@ -1,0 +1,8 @@
+@if(src){
+<img [src]="src" [alt]="alt" [ngClass]="sizeClass" [class.with-border]="border" />
+}
+@else {
+<div [ngClass]="['avatar-placeholder', sizeClass, border ? 'with-border' : '']">
+    {{ getInitial() }}
+</div>
+}

@@ -1,0 +1,22 @@
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                @for (column of columns; track $index) {
+                <th>
+                    {{ column.label }}
+                </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (row of data; track $index) {
+            <tr (click)="onRowClick(row)" class="clickable-row">
+                @for (column of columns; track $index) {
+                <td> {{ row[column.key] }}</td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+.badge-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.badge {
+  font-family: var(--font-family);
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: var(--color-secondary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 9999px;
+  min-width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  user-select: none;
+  pointer-events: none;
+}

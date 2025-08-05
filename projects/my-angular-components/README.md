@@ -26,10 +26,10 @@ export * from './lib/nombre-libreria.module';
 2. Compile the library 
 
 ```bash 
-ng build library-name
+ng build my-angular-components
 ```
 
-3. Move to `dist/library-name` and publish:
+3. Move to `dist/my-angular-components` and publish:
 
 ```bash
 npm publish

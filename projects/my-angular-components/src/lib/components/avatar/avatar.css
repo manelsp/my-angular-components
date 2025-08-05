@@ -1,0 +1,36 @@
+ img,
+ .avatar-placeholder {
+     border-radius: 50%;
+     object-fit: cover;
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+     font-weight: bold;
+     background-color: var(--color-secondary);
+     color: var(--color-gray-50);
+     font-family: var(--font-family);
+     user-select: none;
+ }
+
+ img.with-border,
+ .avatar-placeholder.with-border {
+     border: 2px solid var(--color-primary);
+ }
+
+ .small {
+     width: 32px;
+     height: 32px;
+     font-size: 16px;
+ }
+
+ .medium {
+     width: 48px;
+     height: 48px;
+     font-size: 24px;
+ }
+
+ .large {
+     width: 72px;
+     height: 72px;
+     font-size: 32px;
+ }

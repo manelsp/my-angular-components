@@ -30,12 +30,12 @@
   background-color: var(--color-primary-dark);
 }
 
-.button.info {
+.button.neutral {
   background-color: var(--color-gray-200);
   color: var(--color-gray-800);
 }
 
-.button.info:hover:not(:disabled) {
+.button.neutral:hover:not(:disabled) {
   background-color: var(--color-gray-300);
 }
 

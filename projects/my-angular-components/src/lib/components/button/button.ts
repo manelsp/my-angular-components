@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button.css'
 })
 export class MyComponentsButton {
-  @Input() variant: 'primary' | 'secondary' | 'success' | 'error' | 'info' = 'primary';
+  @Input() variant: 'primary' | 'secondary' | 'success' | 'error' | 'neutral' = 'primary';
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   @Input() disabled: boolean = false;
   @Input() loading: boolean = false;

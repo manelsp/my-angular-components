@@ -15,7 +15,6 @@
 
 .input-wrapper input {
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--color-gray-300);
   border-radius: 6px;
   font-size: 1rem;
   color: var(--color-gray-800);
@@ -24,8 +23,6 @@
 
 .input-wrapper input:focus {
   outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 6px var(--color-primary-light);
 }
 
 .input-wrapper.invalid input {
@@ -36,4 +33,29 @@
   color: var(--color-error);
   font-size: 0.875rem;
   margin-top: 0.25rem;
+}
+
+/* Variantes */
+.input-wrapper input.primary {
+  border: 1px solid var(--color-primary);
+}
+
+.input-wrapper input.primary:focus {
+  box-shadow: 0 0 6px var(--color-primary-light);
+}
+
+.input-wrapper input.secondary {
+  border: 1px solid var(--color-secondary);
+}
+
+.input-wrapper input.secondary:focus {
+  box-shadow: 0 0 6px var(--color-secondary-light);
+}
+
+.input-wrapper input.neutral {
+  border: 1px solid var(--color-gray-300);
+}
+
+.input-wrapper input.neutral:focus {
+  box-shadow: 0 0 6px var(--color-gray-200);
 }

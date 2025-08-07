@@ -1,3 +1,4 @@
+import { MyComponentsModal } from './../../../../../my-angular-components/src/lib/components/modal/modal';
 import { MyComponentsTable } from './../../../../../my-angular-components/src/lib/components/table/table';
 import { MyComponentsMessage } from './../../../../../my-angular-components/src/lib/components/message/message';
 import { MyComponentsAvatar } from './../../../../../my-angular-components/src/lib/components/avatar/avatar';
@@ -21,25 +22,28 @@ import { Forms } from "../../components/forms/forms";
     MyComponentsAvatar,
     MyComponentsMessage,
     MyComponentsTable,
+    MyComponentsModal,
     Forms
 ],
   templateUrl: './components.html',
   styleUrl: './components.scss'
 })
 export class Components {
-  columns = [
+  public showModal : boolean = false;
+
+  public columns = [
     { label: 'Nombre', key: 'name' },
     { label: 'Correo', key: 'email' },
     { label: 'País', key: 'country' }
   ];
 
-  data = [
+  public data = [
     { name: 'Juan Pérez', email: 'juan@example.com', country: 'España' },
     { name: 'Lucía Gómez', email: 'lucia@example.com', country: 'México' },
     { name: 'Mario Rossi', email: 'mario@example.com', country: 'Italia' }
   ];
 
-  onRowSelected(row: any) {
+  public onRowSelected(row: any) {
     console.log('Fila clickeada:', row);
     // Aquí puedes navegar, abrir modal, etc.
   }

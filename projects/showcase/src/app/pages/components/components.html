@@ -33,7 +33,24 @@
   <my-components-button variant="error" [loading]="true"> Deleting... </my-components-button>
 </div>
 
-<!-- miscelania -->
+<!-- Modals -->
+<h2>Modals</h2>
+<hr>
+
+<my-components-button variant="primary" (click)="showModal = true">Show Modal</my-components-button>
+<my-components-modal (close)="showModal = false" size="medium" [visible]="showModal">
+  <div modal-header>
+    <h2>Mi modal</h2>
+  </div>
+  <div modal-body>
+    <p>Contenido del modal aquí.</p>
+  </div>
+  <div modal-footer>
+  <my-components-button variant="primary">Button</my-components-button>
+  </div>
+</my-components-modal>
+
+<!-- Miscelania -->
 <h2>Miscelania</h2>
 <hr>
 

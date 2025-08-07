@@ -7,6 +7,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: var(--font-family);
+    max-width: 300px;
 }
 
 .card-image {
@@ -17,7 +18,7 @@
     border-top-right-radius: 8px;
     display: block;
     margin-bottom: 1rem;
-    object-fit: scale-down;
+    object-fit: none;
 }
 
 .card-header {

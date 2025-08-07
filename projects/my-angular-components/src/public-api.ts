@@ -13,3 +13,5 @@ export * from './lib/components/counter-badge/counter-badge';
 export * from './lib/components/avatar/avatar';
 export * from './lib/components/message/message';
 export * from './lib/components/table/table';
+export * from './lib/components/modal/modal';
+

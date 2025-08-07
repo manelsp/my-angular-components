@@ -1,0 +1,45 @@
+
+<header class="header" role="banner">
+
+  <div class="left">
+    <!-- Solo hamburguesa visible en móvil -->
+    <button class="menu-toggle" aria-label="Abrir menú de navegación" (click)="toggleMenu()">☰</button>
+
+    <!-- Logo oculto en móvil -->
+    <a [routerLink]="'/'" aria-label="Home" title="Home" class="logo-link">
+      @if(logoSrc){
+        <img [src]="logoSrc" alt="Logo" class="logo" />
+      }
+    </a>
+  </div>
+
+  <!-- Navegación desktop -->
+  <nav class="nav-links desktop-only" aria-label="Navegación principal">
+    <ul>
+      @for(route of routes; track $index) {
+        <li><a [routerLink]="route.path" routerLinkActive="active" [title]="route.label">{{ route.label }}</a></li>
+      }
+    </ul>
+  </nav>
+
+  <!-- Acciones a la derecha -->
+  <div class="right">
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Menú móvil sidebar -->
+  @if(menuOpen) {
+  <div class="mobile-menu-overlay" (click)="closeMenu()"></div>
+
+  <nav class="mobile-menu-sidebar open" (click)="$event.stopPropagation()">
+    <ul>
+      @for(route of routes; track $index){
+      <li>
+        <a [routerLink]="route.path" routerLinkActive="active" [title]="route.label" (click)="closeMenu()">{{ route.label }}</a>
+      </li>
+      }
+    </ul>
+  </nav>
+}
+
+</header>

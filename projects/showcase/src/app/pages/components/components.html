@@ -38,6 +38,7 @@
 <hr>
 
 <my-components-button variant="primary" (click)="showModal = true">Show Modal</my-components-button>
+
 <my-components-modal (close)="showModal = false" size="medium" [visible]="showModal">
   <div modal-header>
     <h2>Mi modal</h2>
@@ -46,7 +47,44 @@
     <p>Contenido del modal aquí.</p>
   </div>
   <div modal-footer>
-  <my-components-button variant="primary">Button</my-components-button>
+    <my-components-button variant="primary">Button</my-components-button>
+  </div>
+</my-components-modal>
+
+<!-- Navigation -->
+<h2>Navigation</h2>
+<hr>
+
+<div class="flex-h">
+  <my-components-button variant="error" (click)="showHeader = true">Show header</my-components-button>
+  <my-components-button variant="success" (click)="showSidenav = true">Show sidenav</my-components-button>
+</div>
+
+<my-components-modal (close)="showHeader = false" size="larger " [visible]="showHeader">
+  <div modal-header>
+    <my-components-header [logoSrc]="'/images/logo.png'" [routes]="[
+      { path: '/', label: 'Inicio' },
+      { path: '/tienda', label: 'Tienda' },
+      { path: '/contacto', label: 'Contacto' }
+    ]">
+      <my-components-button variant="neutral">Hello</my-components-button>
+    </my-components-header>
+  </div>
+</my-components-modal>
+
+<my-components-modal (close)="showSidenav = false" size="larger " [visible]="showSidenav">
+  <div modal-header>
+    <my-components-button (click)="openedSidenav = true" variant="neutral">Open sidenav</my-components-button>
+  </div>
+  <div modal-body>
+    <my-components-sidenav [isOpen]="openedSidenav" (closed)="openedSidenav = false" [routes]="[
+      { path: '/', label: 'Inicio' },
+      { path: '/tienda', label: 'Tienda' },
+      { path: '/contacto', label: 'Contacto' }
+    ]">
+      ></my-components-sidenav>
+    <div class="main-content">
+    </div>
   </div>
 </my-components-modal>
 
@@ -55,7 +93,7 @@
 <hr>
 
 <!-- Badges -->
- <h3>Badges</h3>
+<h3>Badges</h3>
 
 <my-components-counter-badge [count]="5">
   <img [src]="'icons/Cart.svg'" width="35px" height="35px" />
@@ -65,35 +103,25 @@
 <h3>Avatars</h3>
 
 <div class="flex-h">
-  <my-components-avatar 
-    [name]="'Ana María'" 
-    size="small" 
-    [border]="false">
+  <my-components-avatar [name]="'Ana María'" size="small" [border]="false">
   </my-components-avatar>
 
-    <my-components-avatar 
-    [name]="'Ana María'" 
-    size="medium" 
-    [border]="false">
+  <my-components-avatar [name]="'Ana María'" size="medium" [border]="false">
   </my-components-avatar>
 
-    <my-components-avatar 
-    [src]="'images/avatar.png'" 
-    [name]="'Ana María'" 
-    size="large" 
-    [border]="true">
+  <my-components-avatar [src]="'images/avatar.png'" [name]="'Ana María'" size="large" [border]="true">
   </my-components-avatar>
-  
+
 </div>
 
 <!-- Messages -->
- <h3>Messages</h3>
+<h3>Messages</h3>
 
 <my-components-message type="success" title="Éxito" [closable]="true">
   Tu operación se realizó correctamente.
 </my-components-message>
 
-<my-components-message  type="error" title="Error">
+<my-components-message type="error" title="Error">
   Hubo un problema al procesar tu solicitud.
 </my-components-message>
 
@@ -110,13 +138,10 @@
 <!-- Toasts -->
 
 <!-- Table -->
- <h2>Table</h2>
+<h2>Table</h2>
 <hr>
 
-<my-components-table 
-  [columns]="columns" 
-  [data]="data"
-  (rowClick)="onRowSelected($event)">
+<my-components-table [columns]="columns" [data]="data" (rowClick)="onRowSelected($event)">
 </my-components-table>
 
 <!-- Header -->

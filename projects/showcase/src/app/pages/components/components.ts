@@ -1,3 +1,5 @@
+import { MyComponentsSidenav } from './../../../../../my-angular-components/src/lib/components/sidenav/sidenav';
+import { MyComponentsHeader } from './../../../../../my-angular-components/src/lib/components/header/header';
 import { MyComponentsModal } from './../../../../../my-angular-components/src/lib/components/modal/modal';
 import { MyComponentsTable } from './../../../../../my-angular-components/src/lib/components/table/table';
 import { MyComponentsMessage } from './../../../../../my-angular-components/src/lib/components/message/message';
@@ -23,6 +25,8 @@ import { Forms } from "../../components/forms/forms";
     MyComponentsMessage,
     MyComponentsTable,
     MyComponentsModal,
+    MyComponentsHeader,
+    MyComponentsSidenav,
     Forms
 ],
   templateUrl: './components.html',
@@ -30,6 +34,9 @@ import { Forms } from "../../components/forms/forms";
 })
 export class Components {
   public showModal : boolean = false;
+  public showHeader : boolean = false;
+  public showSidenav : boolean = false;
+  public openedSidenav : boolean = false;
 
   public columns = [
     { label: 'Nombre', key: 'name' },

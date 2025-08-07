@@ -1,0 +1,136 @@
+:host {
+  position: relative;
+}
+
+/* === OVERLAY para mobile === */
+.sidenav-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: none;
+}
+
+.sidenav-overlay.open {
+  display: block;
+}
+
+/* === SIDENAV general === */
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 260px;
+  background-color: var(--color-white);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+/* Abierto en mobile */
+.sidenav.open {
+  transform: translateX(0);
+}
+
+/* === ENCABEZADO del sidenav === */
+.sidenav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.sidenav-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-gray-800);
+}
+
+.sidenav-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-gray-600);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.sidenav-close:hover,
+.sidenav-close:focus {
+  color: var(--color-primary);
+  outline: none;
+}
+
+/* === NAVIGATION === */
+.sidenav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidenav-links a {
+  color: var(--color-gray-700);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.sidenav-links a:hover,
+.sidenav-links a.active {
+  color: var(--color-primary);
+}
+
+/* === ACTIONS con ng-content === */
+.sidenav-actions {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-gray-200);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .sidenav {
+    width: 80vw;
+  }
+
+  .sidenav-close {
+    display: block;
+  }
+}
+
+/* === DESKTOP: siempre visible === */
+@media (min-width: 769px) {
+  .sidenav {
+    transform: translateX(0) !important;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 260px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .sidenav-overlay {
+    display: none !important;
+  }
+
+  .sidenav-close {
+    display: none; /* no hace falta botón de cerrar en desktop */
+  }
+
+  /* 👇 Esta parte evita que el contenido sea tapado */
+  .main-content {
+    margin-left: 260px;
+  }
+}

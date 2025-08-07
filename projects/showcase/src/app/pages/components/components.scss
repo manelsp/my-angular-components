@@ -1,5 +1,11 @@
-.flex-h{
+.flex-h {
     display: flex;
     gap: 1em;
     flex-wrap: wrap;
+}
+
+@media (min-width: 769px) {
+    .main-content {
+        margin-left: 300px;
+    }
 }

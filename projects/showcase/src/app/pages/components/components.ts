@@ -1,3 +1,4 @@
+import { MyComponentsImageViewer } from './../../../../../my-angular-components/src/lib/components/image-viewer/image-viewer';
 import { MyComponentsSidenav } from './../../../../../my-angular-components/src/lib/components/sidenav/sidenav';
 import { MyComponentsHeader } from './../../../../../my-angular-components/src/lib/components/header/header';
 import { MyComponentsModal } from './../../../../../my-angular-components/src/lib/components/modal/modal';
@@ -27,6 +28,7 @@ import { Forms } from "../../components/forms/forms";
     MyComponentsModal,
     MyComponentsHeader,
     MyComponentsSidenav,
+    MyComponentsImageViewer,
     Forms
 ],
   templateUrl: './components.html',

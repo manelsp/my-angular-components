@@ -195,5 +195,6 @@
   .right {
     order: 2;
     margin-left: auto;
+    gap: 1.3em;
   }
 }

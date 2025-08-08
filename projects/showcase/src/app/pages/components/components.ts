@@ -1,3 +1,4 @@
+import { MyComponentsCardHoritzontal } from './../../../../../my-angular-components/src/lib/components/card-horitzontal/card-horitzontal';
 import { MyComponentsImageViewer } from './../../../../../my-angular-components/src/lib/components/image-viewer/image-viewer';
 import { MyComponentsSidenav } from './../../../../../my-angular-components/src/lib/components/sidenav/sidenav';
 import { MyComponentsHeader } from './../../../../../my-angular-components/src/lib/components/header/header';
@@ -29,6 +30,7 @@ import { Forms } from "../../components/forms/forms";
     MyComponentsHeader,
     MyComponentsSidenav,
     MyComponentsImageViewer,
+    MyComponentsCardHoritzontal,
     Forms
 ],
   templateUrl: './components.html',

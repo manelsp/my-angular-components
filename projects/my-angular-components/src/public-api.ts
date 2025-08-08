@@ -17,3 +17,4 @@ export * from './lib/components/modal/modal';
 export * from './lib/components/header/header';
 export * from './lib/components/sidenav/sidenav';
 export * from './lib/components/image-viewer/image-viewer';
+export * from './lib/components/card-horitzontal/card-horitzontal';

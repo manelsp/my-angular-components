@@ -8,6 +8,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: var(--font-family);
     max-width: 300px;
+    min-width: 230px;
 }
 
 .card-image {

@@ -3,12 +3,24 @@ import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/
 
 @Component({
   selector: 'my-components-image-viewer',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './image-viewer.html',
   styleUrl: './image-viewer.css'
 })
 export class MyComponentsImageViewer {
-  @Input() src: string = '';
+  private _src: string = '';
+
+  @Input()
+  set src(value: string) {
+    this._src = value;
+    this.updateZoomBackground();
+  }
+
+  get src(): string {
+    return this._src;
+  }
+
   @Input() alt: string = 'image';
   @Input() description?: string;
   @Input() zoom: boolean = false;
@@ -25,11 +37,7 @@ export class MyComponentsImageViewer {
   backgroundPosition = '0% 0%';
 
   ngAfterViewInit(): void {
-    if (this.zoom && this.zoomRef) {
-      const zoomEl = this.zoomRef.nativeElement;
-      zoomEl.style.backgroundImage = `url('${this.src}')`;
-      zoomEl.style.backgroundSize = `${this.zoomFactor * 100}%`;
-    }
+    this.updateZoomBackground();
   }
 
   @HostListener('mousemove', ['$event'])
@@ -62,4 +70,11 @@ export class MyComponentsImageViewer {
     this.zoomVisible = false;
   }
 
+  private updateZoomBackground() {
+    if (this.zoom && this.zoomRef?.nativeElement) {
+      const zoomEl = this.zoomRef.nativeElement;
+      zoomEl.style.backgroundImage = `url('${this._src}')`;
+      zoomEl.style.backgroundSize = `${this.zoomFactor * 100}%`;
+    }
+  }
 }

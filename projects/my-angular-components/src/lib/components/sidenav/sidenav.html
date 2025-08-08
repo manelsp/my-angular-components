@@ -1,24 +1,23 @@
-<aside class="sidenav" [class.open]="isOpen">
-    <div class="sidenav-header">
-        <span class="sidenav-title">{{title}}</span>
-        <button class="sidenav-close" (click)="close()" aria-label="Cerrar">×</button>
-    </div>
+<aside class="sidenav" [class.open]="isOpen" (click)="$event.stopPropagation()">
+  <div class="sidenav-header">
+    <span class="sidenav-title">{{title}}</span>
+  </div>
 
-    <nav class="sidenav-links">
-        <ul>
-            @for (route of routes; track $index) {
-            <li>
-                <a [routerLink]="route.path" (click)="close()" routerLinkActive="active">{{ route.label }}</a>
-            </li>
-            }
-        </ul>
-    </nav>
+  <nav class="sidenav-links">
+    <ul>
+      @for (route of routes; track $index) {
+        <li>
+          <a [routerLink]="route.path" (click)="close()" routerLinkActive="active">{{ route.label }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
 
-    <div class="sidenav-actions">
-        <ng-content></ng-content>
-    </div>
+  <div class="sidenav-actions">
+    <ng-content></ng-content>
+  </div>
 </aside>
 
 @if(isOpen) {
-<div class="sidenav-overlay" (click)="close()"></div>
+  <div class="sidenav-overlay" (click)="close()"></div>
 }

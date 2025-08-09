@@ -12,4 +12,5 @@ export class MyComponentsCardHoritzontal {
   @Input() subtitle: string | undefined;
   @Input() imageSrc?: string;  
   @Input() imageAlt: string = 'Card image';  
+  @Input() route?: string | undefined;
 }

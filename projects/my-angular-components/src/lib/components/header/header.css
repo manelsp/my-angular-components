@@ -9,7 +9,7 @@
   border-bottom: 2px solid var(--color-secondary);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-family: var(--font-family);
-  gap: 1.5rem;
+  gap: 2em;
   z-index: 1000;
 }
 
@@ -26,6 +26,7 @@
 
 .right {
   justify-content: flex-end;
+  gap: 1em;
 }
 
 /* === LOGO === */
@@ -35,7 +36,7 @@
 }
 
 .logo {
-  max-height: 40px;
+  max-height: 150px;
   width: auto;
   display: block;
 }

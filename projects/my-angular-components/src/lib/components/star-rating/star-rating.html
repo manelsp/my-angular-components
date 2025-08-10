@@ -1,0 +1,20 @@
+<div class="star-rating" [class.readonly]="readonly">
+    @for (_ of starsArray(); track $index; let i = $index) {
+   <span
+      class="star"
+      [class.filled]="i < rating"
+      [class.hovered]="i < hoverIndex"
+      (mouseenter)="setHover(i + 1)"
+      (mouseleave)="clearHover()"
+      (click)="setRating(i + 1)">
+      ★
+    </span>
+    }
+
+    @if(votes > 0){
+    <span class="votes">
+        ({{ votes }})
+    </span>
+    }
+
+</div>

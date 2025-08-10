@@ -1,0 +1,41 @@
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.star-rating.readonly {
+  cursor: default; 
+}
+
+.star {
+  font-size: 2rem;
+  color: #d3d3d3; 
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star.filled {
+  color: rgba(255, 215, 0, 0.85); 
+}
+
+.star.hovered {
+  color: rgba(255, 200, 0, 0.95); 
+  transform: scale(1.1);
+}
+
+.votes {
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+  color: var(--color-gray-600, #666);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star-rating.readonly .star.hovered {
+  color: rgba(255, 215, 0, 0.85); 
+  transform: none;
+}
+
+.star-rating.readonly .votes.hovered {
+  color: var(--color-gray-600, #666);
+  transform: none;
+}

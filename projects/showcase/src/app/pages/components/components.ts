@@ -1,3 +1,4 @@
+import { MyComponentsStarRating } from './../../../../../my-angular-components/src/lib/components/star-rating/star-rating';
 import { MyComponentsCardHoritzontal } from './../../../../../my-angular-components/src/lib/components/card-horitzontal/card-horitzontal';
 import { MyComponentsImageViewer } from './../../../../../my-angular-components/src/lib/components/image-viewer/image-viewer';
 import { MyComponentsSidenav } from './../../../../../my-angular-components/src/lib/components/sidenav/sidenav';
@@ -31,6 +32,7 @@ import { Forms } from "../../components/forms/forms";
     MyComponentsSidenav,
     MyComponentsImageViewer,
     MyComponentsCardHoritzontal,
+    MyComponentsStarRating,
     Forms
 ],
   templateUrl: './components.html',
@@ -57,5 +59,9 @@ export class Components {
   public onRowSelected(row: any) {
     console.log('Fila clickeada:', row);
     // Aquí puedes navegar, abrir modal, etc.
+  }
+
+  public onRate(number: Number) {
+    console.log('Voting:', number);
   }
 }

@@ -1,3 +1,4 @@
+import { MyComponentsRadioGroup } from './../../../../../my-angular-components/src/lib/components/radio-group/radio-group';
 import { MyComponentsFileUpload } from './../../../../../my-angular-components/src/lib/components/file-upload/file-upload';
 import { MyComponentsDatepicker } from './../../../../../my-angular-components/src/lib/components/datepicker/datepicker';
 import { MyComponentsCheckbox } from './../../../../../my-angular-components/src/lib/components/checkbox/checkbox';
@@ -20,6 +21,7 @@ import { MyComponentsButton } from '../../../../../my-angular-components/src/lib
     MyComponentsDatepicker,
     MyComponentsFileUpload,
     MyComponentsButton,
+    MyComponentsRadioGroup,
     ReactiveFormsModule
   ],
   templateUrl: './forms.html',
@@ -46,6 +48,7 @@ export class Forms {
       description: ['', [Validators.required]],
       acceptTerms: [false, Validators.requiredTrue],
       birthdate: ['', Validators.required],
+      color:['', Validators.required],
       photos: [[this.base64Image], Validators.required]
     });
   }

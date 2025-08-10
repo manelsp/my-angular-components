@@ -1,0 +1,11 @@
+<div class="radio-wrapper" [class.invalid]="control.invalid && control.touched">
+    @for (option of options; track $index) {
+    <label>
+        <input type="radio" [formControl]="control" [value]="option.value" [name]="controlName" [disabled]="disabled" />
+        {{ option.label }}
+    </label>
+    }
+    @if(control.invalid && control.touched){
+        <div class="error">{{ errorMessage }}</div>
+    }
+</div>

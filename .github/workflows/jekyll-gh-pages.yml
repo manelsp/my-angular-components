@@ -34,11 +34,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build Angular app
-        run: npm run build my-angular-components
+        run: npm run build showcase
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/my-angular-components
+          path: dist/showcase
 
   # Deployment job
   deploy:

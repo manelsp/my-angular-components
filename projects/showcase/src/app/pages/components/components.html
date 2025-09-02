@@ -4,9 +4,9 @@
 
 <div class="flex-h">
   <my-components-card [title]="'Title: Two Cats Crying'" [subtitle]="'Card subtitle'"
-    [imageSrc]="'/images/cat.jpg'"></my-components-card>
+    [imageSrc]="'images/cat.jpg'"></my-components-card>
   <my-components-card-horitzontal [title]="'Title'" [subtitle]="'Card subtitle'"
-    [imageSrc]="'/images/cat.jpg'"></my-components-card-horitzontal>
+    [imageSrc]="'images/cat.jpg'"></my-components-card-horitzontal>
 </div>
 
 
@@ -68,7 +68,7 @@
 
 <my-components-modal (close)="showHeader = false" size="larger " [visible]="showHeader">
   <div modal-header>
-    <my-components-header [logoSrc]="'/images/logo.png'" [routes]="[
+    <my-components-header [logoSrc]="'images/logo.png'" [routes]="[
       { path: '/', label: 'Inicio' },
       { path: '/tienda', label: 'Tienda' },
       { path: '/contacto', label: 'Contacto' }
@@ -151,7 +151,7 @@
 <h2>Images</h2>
 <hr>
 
-<my-components-image-viewer [src]="'/images/cat.jpg'" alt="Producto destacado"
+<my-components-image-viewer [src]="'images/cat.jpg'" alt="Producto destacado"
   description="Esta es una imagen de un producto de ejemplo." [zoom]="true" width="250px" height="200px"
   [zoomFactor]="2">
 </my-components-image-viewer>

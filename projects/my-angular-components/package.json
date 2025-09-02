@@ -1,6 +1,10 @@
 {
   "name": "my-angular-components",
   "version": "0.0.12",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manelsp/my-angular-components"
+  },
   "peerDependencies": {
     "@angular/common": "^20.1.0",
     "@angular/core": "^20.1.0"

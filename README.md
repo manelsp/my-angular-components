@@ -1,59 +1,26 @@
-# AngularComponents
+# My Angular Components
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+[![npm version](https://img.shields.io/npm/v/my-angular-components.svg)](https://www.npmjs.com/package/my-angular-components)
+[![npm downloads](https://img.shields.io/npm/dm/my-angular-components.svg)](https://www.npmjs.com/package/my-angular-components)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/USUARIO/REPO/main.yml?branch=main)](https://github.com/USUARIO/REPO/actions) 
 
-## Development server
+Una librería de componentes reutilizables para Angular, diseñada para facilitar el desarrollo de aplicaciones con interfaces consistentes y modernas.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🚀 Showcase
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Puedes ver todos los componentes en acción en el siguiente enlace:  
+[https://manelsp.github.io/my-angular-components/](https://manelsp.github.io/my-angular-components/)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📦 Instalación
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Instala la librería desde npm:
 
 ```bash
-ng generate --help
+npm install my-angular-components
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Asegúrate de que tu proyecto Angular tenga la versión compatible indicada en peerDependencies.

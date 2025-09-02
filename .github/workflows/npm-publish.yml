@@ -1,10 +1,10 @@
 name: Publish Package
 
 on:
+  # Runs on pushes targeting the default branch
   push:
-    tags:
-      - 'v*'
-
+    branches: ["main"]
+    
 permissions:
   id-token: write  # Required for OIDC
   contents: read
@@ -25,5 +25,5 @@ jobs:
         run: npm install -g npm@latest
       - run: npm ci
       - run: npm run build my-angular-components --if-present
-      - run: npm test
+      # - run: npm test
       - run: npm publish

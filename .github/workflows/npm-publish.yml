@@ -24,6 +24,9 @@ jobs:
       - name: Update npm
         run: npm install -g npm@latest
       - run: npm ci
-      - run: npm run build my-angular-components --if-present
+      - run: npm run build my-angular-components
       # - run: npm test
-      - run: npm publish
+      - name: Publish to npm
+        run: |
+          cd dist/my-angular-components
+          npm publish --access public

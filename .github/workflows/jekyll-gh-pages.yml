@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/showcase
+          path: dist/showcase/browser
 
   # Deployment job
   deploy:

@@ -1,0 +1,62 @@
+<!-- Header -->
+<h2>Header</h2>
+<hr>
+
+  <my-components-button variant="error" (click)="showHeader = true">Show header</my-components-button>
+
+  <my-components-modal (close)="showHeader = false" size="larger " [visible]="showHeader">
+      <div modal-header>
+          <my-components-header [logoSrc]="'images/logo.png'" [routes]="[
+              { path: '', label: 'Inicio' },
+              { path: '', label: 'Tienda' },
+              { path: '', label: 'Contacto' }
+            ]">
+      <my-components-button variant="neutral">Hello</my-components-button>
+    </my-components-header>
+</div>
+</my-components-modal>
+
+<!-- Header -->
+<h2>Sidenav</h2>
+<hr>
+
+<my-components-button variant="success" (click)="showSidenav = true">Show sidenav</my-components-button>
+
+<my-components-modal (close)="showSidenav = false" size="larger " [visible]="showSidenav">
+  <div modal-header>
+    <my-components-button (click)="openedSidenav = true" variant="neutral">Open sidenav</my-components-button>
+  </div>
+  <div modal-body>
+    <my-components-sidenav [isOpen]="openedSidenav" (closed)="openedSidenav = false" [routes]="[
+      { path: '', label: 'Inicio' },
+      { path: '', label: 'Tienda' },
+      { path: '', label: 'Contacto' }
+    ]">
+      ></my-components-sidenav>
+    <div class="main-content">
+    </div>
+  </div>
+</my-components-modal>
+
+<!-- Footer -->
+<h2>Footer</h2>
+<hr>
+
+<my-components-footer [copyright]="'2025 My Company'">
+  <div footer-left>
+    <h4>Sobre Nosotros</h4>
+    <p>Expertos en UI Components.</p>
+  </div>
+
+  <div footer-center>
+    <h4>Links</h4>
+    <p routerLink="/legal">Aviso Legal</p>
+    <p routerLink="/cookies">Política de Cookies</p>
+  </div>
+
+  <div footer-right>
+    <h4>Contacto</h4>
+    <p>Tel: +34 123 456 789</p>
+    <p>Email: contacto&#64;empresa.com</p>
+  </div>
+</my-components-footer>

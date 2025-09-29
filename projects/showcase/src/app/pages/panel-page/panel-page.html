@@ -1,0 +1,28 @@
+<!-- Cards -->
+<h2>Cards</h2>
+<hr>
+
+<div class="flex-h">
+  <my-components-card [title]="'Title: Two Cats Crying'" [subtitle]="'Card subtitle'"
+    [imageSrc]="'images/cat.jpg'"></my-components-card>
+  <my-components-card-horitzontal [title]="'Title'" [subtitle]="'Card subtitle'"
+    [imageSrc]="'images/cat.jpg'"></my-components-card-horitzontal>
+</div>
+
+<!-- Modals -->
+<h2>Modals</h2>
+<hr>
+
+<my-components-button variant="primary" (click)="showModal = true">Show Modal</my-components-button>
+
+<my-components-modal (close)="showModal = false" size="medium" [visible]="showModal">
+  <div modal-header>
+    <h2>Mi modal</h2>
+  </div>
+  <div modal-body>
+    <p>Contenido del modal aquí.</p>
+  </div>
+  <div modal-footer>
+    <my-components-button variant="primary">Button</my-components-button>
+  </div>
+</my-components-modal>

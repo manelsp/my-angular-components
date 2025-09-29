@@ -1,0 +1,41 @@
+<h2>Chips</h2>
+<hr>
+
+<!-- Chips -->
+<div class="flex-h">
+  <my-components-chip label="Etiqueta Default"></my-components-chip>
+  <my-components-chip label="Primary Chip" color="primary"></my-components-chip>
+  <my-components-chip label="Success Chip" color="success" size="large"></my-components-chip>
+  <my-components-chip label="Error Small" color="error" size="small"></my-components-chip>
+</div>
+
+<!-- Badges -->
+<h3>Badges</h3>
+
+<my-components-counter-badge [count]="5">
+  <img [src]="'icons/Cart.svg'" width="35px" height="35px" />
+</my-components-counter-badge>
+
+<!-- Avatar -->
+<h3>Avatars</h3>
+
+<div class="flex-h">
+  <my-components-avatar [name]="'Ana María'" size="small" [border]="false">
+  </my-components-avatar>
+
+  <my-components-avatar [name]="'Ana María'" size="medium" [border]="false">
+  </my-components-avatar>
+
+  <my-components-avatar [src]="'images/avatar.png'" [name]="'Ana María'" size="large" [border]="true">
+  </my-components-avatar>
+
+</div>
+
+<!-- Ratings -->
+<h3>Rating</h3>
+
+<div class="flex-h">
+  <my-components-star-rating [rating]="4" [maxStars]="5" [votes]="123" (ratingChange)="onRate($event)"></my-components-star-rating>
+
+  <my-components-star-rating [rating]="4" [maxStars]="5" [votes]="123" [readonly]="true"></my-components-star-rating>
+</div>

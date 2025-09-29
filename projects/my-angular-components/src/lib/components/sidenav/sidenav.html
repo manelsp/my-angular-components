@@ -6,9 +6,18 @@
   <nav class="sidenav-links">
     <ul>
       @for (route of routes; track $index) {
-        <li>
-          <a [routerLink]="route.path" (click)="close()" routerLinkActive="active">{{ route.label }}</a>
-        </li>
+      <li>
+        <a [routerLink]="route?.path" (click)="close()"  [ngClass]="{ 'clickable': route?.path }"  routerLinkActive="active">{{ route?.label }}</a>
+        @if(route.children?.length) {
+        <ul class="submenu">
+          @for (child of route.children; track $index) {
+          <li>
+            <a [routerLink]="child?.path" (click)="close()" [ngClass]="{ 'clickable': child?.path }" routerLinkActive="active">{{ child?.label }}</a>
+          </li>
+          }
+        </ul>
+        }
+      </li>
       }
     </ul>
   </nav>
@@ -19,5 +28,5 @@
 </aside>
 
 @if(isOpen) {
-  <div class="sidenav-overlay" (click)="close()"></div>
+<div class="sidenav-overlay" (click)="close()"></div>
 }

@@ -73,8 +73,8 @@
   transition: color 0.3s ease;
 }
 
-.sidenav-links a:hover,
-.sidenav-links a.active {
+.sidenav-links a .clickable:hover,
+.sidenav-links a .clickable.active {
   color: var(--color-primary);
 }
 
@@ -86,6 +86,25 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.sidenav-links .submenu  {
+  list-style: none;
+  padding-left: 1.5rem; 
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidenav-links .submenu a {
+  font-weight: 400;
+  color: var(--color-gray-600);
+}
+
+.sidenav-links .submenu a:hover,
+.sidenav-links .submenu a.active {
+  color: var(--color-primary);
 }
 
 /* === RESPONSIVE === */

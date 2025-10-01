@@ -1,3 +1,4 @@
+import { MyComponentsBottomNav } from './../../../../../my-angular-components/src/lib/components/bottom-nav/bottom-nav';
 import { MyComponentsFooter } from './../../../../../my-angular-components/src/lib/components/footer/footer';
 import { MyComponentsButton } from '../../../../../my-angular-components/src/lib/components/button/button';
 import { MyComponentsModal } from '../../../../../my-angular-components/src/lib/components/modal/modal';
@@ -12,7 +13,8 @@ import { Component } from '@angular/core';
     MyComponentsSidenav,
     MyComponentsModal,
     MyComponentsFooter,
-    MyComponentsButton
+    MyComponentsButton,
+    MyComponentsBottomNav
   ],
   templateUrl: './navigation-page.html',
   styleUrl: './navigation-page.scss'
@@ -20,5 +22,7 @@ import { Component } from '@angular/core';
 export class NavigationPage {
   public showHeader : boolean = false;
   public showSidenav : boolean = false;
+  public showBottomnav : boolean = false;
+
   public openedSidenav : boolean = false;
 }

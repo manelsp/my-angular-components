@@ -13,6 +13,8 @@ export class MyComponentsAvatar {
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   @Input() border: boolean = true;
   @Input() name?: string;
+  @Input() color?: string;     
+  @Input() textColor?: string; 
 
   get sizeClass(): string {
     return this.size;

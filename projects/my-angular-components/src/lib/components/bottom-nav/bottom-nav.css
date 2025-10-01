@@ -1,0 +1,60 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-gray-200);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  font-family: var(--font-family);
+
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}
+
+.bottom-nav-item {
+  flex: 1;
+  text-align: center;
+  color: var(--color-gray-600);
+  text-decoration: none;
+  padding: 0.25rem;
+  transition: color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-nav-item small {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+.bottom-nav-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+}
+
+.bottom-nav-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.bottom-nav-item.active,
+.bottom-nav-item:hover {
+  color: var(--color-primary);
+}
+
+.bottom-nav-item.active .bottom-nav-icon svg,
+.bottom-nav-item:hover .bottom-nav-icon svg {
+  fill: var(--color-primary);
+}

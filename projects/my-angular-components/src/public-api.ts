@@ -20,3 +20,5 @@ export * from './lib/components/image-viewer/image-viewer';
 export * from './lib/components/card-horitzontal/card-horitzontal';
 export * from './lib/components/star-rating/star-rating';
 export * from './lib/components/radio-group/radio-group';
+export * from './lib/components/bottom-nav/bottom-nav';
+

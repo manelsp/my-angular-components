@@ -16,7 +16,7 @@
 </div>
 </my-components-modal>
 
-<!-- Header -->
+<!-- Sidenav -->
 <h2>Sidenav</h2>
 <hr>
 
@@ -37,6 +37,22 @@
     </div>
   </div>
 </my-components-modal>
+
+<!-- Bottom Navigation -->
+<h2>Bottom Nav</h2>
+<hr>
+
+<my-components-button variant="success" (click)="showBottomnav = !showBottomnav">Show BottomNav</my-components-button>
+
+@if (showBottomnav) {
+<my-components-bottom-nav  [items]="[
+    { icon: 'icons/Paper-plane.svg', label: 'Inicio', route: '/home' },
+    { icon: 'icons/Clock-alarm.svg', label: 'Buscar', route: '/search' },
+    { icon: 'icons/Atom.svg', label: 'Favoritos', route: '/favorites' },
+    { icon: 'icons/Cart.svg', label: 'Perfil', route: '/profile' }
+  ]">>
+</my-components-bottom-nav>
+}
 
 <!-- Footer -->
 <h2>Footer</h2>

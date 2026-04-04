@@ -1,4 +1,4 @@
-<div class="card horizontal-card">
+<div class="card horizontal-card" [ngClass]="size()">
   @if (imageSrc()) {
     <img [src]="imageSrc()" [alt]="imageAlt()" class="card-image-horizontal" />
   }

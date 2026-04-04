@@ -58,3 +58,72 @@
     transform: translateY(-2px) scale(1.01);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
+
+/* Tamaños de card */
+.card.extra-small {
+    max-width: 150px;
+    padding: 0.5rem;
+}
+
+.card.extra-small .card-header h3 {
+    font-size: 0.875rem;
+}
+
+.card.extra-small .card-content {
+    font-size: 0.75rem;
+}
+
+.card.extra-small .card-image {
+    max-height: 100px;
+}
+
+.card.small {
+    max-width: 200px;
+    padding: 0.75rem;
+}
+
+.card.small .card-header h3 {
+    font-size: 1rem;
+}
+
+.card.small .card-content {
+    font-size: 0.875rem;
+}
+
+.card.small .card-image {
+    max-height: 150px;
+}
+
+.card.medium {
+    max-width: 300px;
+    padding: 1rem;
+}
+
+.card.medium .card-header h3 {
+    font-size: 1.25rem;
+}
+
+.card.medium .card-content {
+    font-size: 1rem;
+}
+
+.card.medium .card-image {
+    max-height: 250px;
+}
+
+.card.large {
+    max-width: 450px;
+    padding: 1.5rem;
+}
+
+.card.large .card-header h3 {
+    font-size: 1.5rem;
+}
+
+.card.large .card-content {
+    font-size: 1.125rem;
+}
+
+.card.large .card-image {
+    max-height: 350px;
+}

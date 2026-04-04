@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" [ngClass]="size()">
     @if (imageSrc()) {
         @if(route()){
             <img [src]="imageSrc()" [routerLink]="[route()]" [alt]="imageAlt()" class="card-image" />

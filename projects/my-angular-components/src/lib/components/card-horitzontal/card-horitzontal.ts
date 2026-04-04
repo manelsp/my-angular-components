@@ -1,8 +1,9 @@
 import { Component, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'my-components-card-horitzontal',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './card-horitzontal.html',
   styleUrl: './card-horitzontal.css'
 })
@@ -13,4 +14,5 @@ export class MyComponentsCardHoritzontal {
   imageSrc = input<string>();  
   imageAlt = input<string>('Card image');  
   route = input<string>();
+  size = input<'extra-small' | 'small' | 'medium' | 'large'>('medium');
 }

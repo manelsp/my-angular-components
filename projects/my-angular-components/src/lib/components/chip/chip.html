@@ -1,4 +1,4 @@
 <span class="chip" 
-      [ngClass]="[color !== 'default' ? color : '', size !== 'default' ? size : '']">
-  {{ label }}
+      [ngClass]="[color() !== 'default' ? color() : '', size() !== 'default' ? size() : '']">
+  {{ label() }}
 </span>

@@ -1,6 +1,6 @@
-@if(visible){
+@if(visible()){
 <div class="modal-backdrop" (click)="onBackdropClick()">
-   <div class="modal" [ngClass]="size" (click)="$event.stopPropagation()">
+   <div class="modal" [ngClass]="size()" (click)="$event.stopPropagation()">
     <div class="modal-header">
       <ng-content select="[modal-header]"></ng-content>
     </div>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, input, ViewChild, signal, effect } from '@angular/core';
 
 @Component({
   selector: 'my-components-image-viewer',
@@ -9,32 +9,27 @@ import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/
   styleUrl: './image-viewer.css'
 })
 export class MyComponentsImageViewer {
-  private _src: string = '';
-
-  @Input()
-  set src(value: string) {
-    this._src = value;
-    this.updateZoomBackground();
-  }
-
-  get src(): string {
-    return this._src;
-  }
-
-  @Input() alt: string = 'image';
-  @Input() description?: string;
-  @Input() zoom: boolean = false;
-  @Input() width: string = '100%';
-  @Input() height: string = 'auto';
-  @Input() zoomFactor: number = 2;
+  src = input<string>('');
+  alt = input<string>('image');
+  description = input<string>();
+  zoom = input<boolean>(false);
+  width = input<string>('100%');
+  height = input<string>('auto');
+  zoomFactor = input<number>(2);
 
   @ViewChild('imageRef') imageRef!: ElementRef<HTMLImageElement>;
   @ViewChild('zoomRef') zoomRef!: ElementRef<HTMLDivElement>;
 
-  zoomVisible = false;
-  zoomX = 0;
-  zoomY = 0;
-  backgroundPosition = '0% 0%';
+  zoomVisible = signal<boolean>(false);
+  zoomX = signal<number>(0);
+  zoomY = signal<number>(0);
+  backgroundPosition = signal<string>('0% 0%');
+
+  constructor() {
+    effect(() => {
+      this.updateZoomBackground();
+    });
+  }
 
   ngAfterViewInit(): void {
     this.updateZoomBackground();
@@ -42,7 +37,7 @@ export class MyComponentsImageViewer {
 
   @HostListener('mousemove', ['$event'])
   onMouseMove(e: MouseEvent) {
-    if (!this.zoom) return;
+    if (!this.zoom()) return;
 
     const image = this.imageRef.nativeElement;
     const rect = image.getBoundingClientRect();
@@ -53,28 +48,29 @@ export class MyComponentsImageViewer {
     const percentX = (x / rect.width) * 100;
     const percentY = (y / rect.height) * 100;
 
-    this.backgroundPosition = `${percentX}% ${percentY}%`;
-    this.zoomX = e.clientX + 20;
-    this.zoomY = e.clientY - 100;
+    const bgPos = `${percentX}% ${percentY}%`;
+    this.backgroundPosition.set(bgPos);
+    this.zoomX.set(e.clientX + 20);
+    this.zoomY.set(e.clientY - 100);
 
     const zoomEl = this.zoomRef.nativeElement;
-    zoomEl.style.backgroundPosition = this.backgroundPosition;
-    zoomEl.style.backgroundSize = `${this.zoomFactor * 100}%`;
+    zoomEl.style.backgroundPosition = bgPos;
+    zoomEl.style.backgroundSize = `${this.zoomFactor() * 100}%`;
 
-    this.zoomVisible = true;
+    this.zoomVisible.set(true);
   }
 
   @HostListener('mouseleave')
   onMouseLeave() {
-    if (!this.zoom) return;
-    this.zoomVisible = false;
+    if (!this.zoom()) return;
+    this.zoomVisible.set(false);
   }
 
   private updateZoomBackground() {
-    if (this.zoom && this.zoomRef?.nativeElement) {
+    if (this.zoom() && this.zoomRef?.nativeElement) {
       const zoomEl = this.zoomRef.nativeElement;
-      zoomEl.style.backgroundImage = `url('${this._src}')`;
-      zoomEl.style.backgroundSize = `${this.zoomFactor * 100}%`;
+      zoomEl.style.backgroundImage = `url('${this.src()}')`;
+      zoomEl.style.backgroundSize = `${this.zoomFactor() * 100}%`;
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'my-components-table',
@@ -7,10 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './table.css'
 })
 export class MyComponentsTable {
-  @Input() columns: { key: string; label: string }[] = [];
-  @Input() data: any[] = [];
+  columns = input<{ key: string; label: string }[]>([]);
+  data = input<any[]>([]);
 
-  @Output() rowClick = new EventEmitter<any>();
+  rowClick = output<any>();
 
   public onRowClick(row: any) {
     this.rowClick.emit(row);

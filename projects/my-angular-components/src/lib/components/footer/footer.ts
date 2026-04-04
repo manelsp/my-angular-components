@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'my-components-footer',
@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './footer.css'
 })
 export class MyComponentsFooter {
-  @Input() copyright: string = '';
+  copyright = input<string>('');
 }

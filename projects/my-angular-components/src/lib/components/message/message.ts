@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 
 @Component({
   selector: 'my-components-message',
@@ -8,13 +8,13 @@ import { Component, Input } from '@angular/core';
   styleUrl: './message.css'
 })
 export class MyComponentsMessage {
-  @Input() type: 'info' | 'success' | 'warning' | 'error' = 'info';
-  @Input() title: string = '';
-  @Input() closable: boolean = false;
+  type = input<'info' | 'success' | 'warning' | 'error'>('info');
+  title = input<string>('');
+  closable = input<boolean>(false);
 
-  public visible = true;
+  visible = signal<boolean>(true);
 
   public close() {
-    this.visible = false;
+    this.visible.set(false);
   }
 }

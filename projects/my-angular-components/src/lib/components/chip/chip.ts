@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'my-components-chip',
@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './chip.css'
 })
 export class MyComponentsChip {
-  @Input() label: string = '';
-  @Input() color: 'default' | 'primary' | 'success' | 'error' = 'default';
-  @Input() size: 'small' | 'default' | 'large' = 'default';
+  label = input<string>('');
+  color = input<'default' | 'primary' | 'success' | 'error'>('default');
+  size = input<'small' | 'default' | 'large'>('default');
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'my-components-counter-badge',
@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './counter-badge.css'
 })
 export class MyComponentsCounterBadge {
-  @Input() count: number | null = null;
-  @Input() maxCount: number = 99;
+  count = input<number | null>(null);
+  maxCount = input<number>(99);
 }

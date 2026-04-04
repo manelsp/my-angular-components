@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,11 +9,11 @@ import { RouterLink } from '@angular/router';
   styleUrl: './sidenav.css'
 })
 export class MyComponentsSidenav {
-  @Input() isOpen = false;
-  @Input() title : string = "Menú";
-  @Input() routes: { path?: string; label: string, children?: { path?: string; label: string }[]; }[] = [];
+  isOpen = input<boolean>(false);
+  title = input<string>("Menú");
+  routes = input<{ path?: string; label: string, children?: { path?: string; label: string }[]; }[]>([]);
 
-  @Output() closed = new EventEmitter<void>();
+  closed = output<void>();
 
   public close() {
     this.closed.emit();

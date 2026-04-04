@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'my-components-button',
@@ -8,10 +8,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button.css'
 })
 export class MyComponentsButton {
-  @Input() variant: 'primary' | 'secondary' | 'success' | 'error' | 'neutral' = 'primary';
-  @Input() size: 'small' | 'medium' | 'large' = 'medium';
-  @Input() disabled: boolean = false;
-  @Input() loading: boolean = false;
-  @Input() iconStart: string = '';
-  @Input() iconEnd: string = '';
+  variant = input<'primary' | 'secondary' | 'success' | 'error' | 'neutral'>('primary');
+  size = input<'small' | 'medium' | 'large'>('medium');
+  disabled = input<boolean>(false);
+  loading = input<boolean>(false);
+  iconStart = input<string>('');
+  iconEnd = input<string>('');
 }

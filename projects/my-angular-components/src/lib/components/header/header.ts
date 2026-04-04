@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,16 +8,16 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.css'
 })
 export class MyComponentsHeader {
-  @Input() logoSrc: string = '';
-  @Input() routes: { path: string; label: string }[] = [];
+  logoSrc = input<string>('');
+  routes = input<{ path: string; label: string }[]>([]);
 
-  public menuOpen = false;
+  menuOpen = signal<boolean>(false);
   
   public toggleMenu(): void {
-    this.menuOpen = !this.menuOpen;
+    this.menuOpen.update(value => !value);
   }
 
   public closeMenu(): void {
-    this.menuOpen = false;
+    this.menuOpen.set(false);
   }
 }

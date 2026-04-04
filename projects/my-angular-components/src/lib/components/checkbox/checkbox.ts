@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -8,12 +8,12 @@ import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/for
   styleUrl: './checkbox.css'
 })
 export class MyComponentsCheckbox {
-  @Input() controlName!: string;
-  @Input() label!: string;
+  controlName = input.required<string>();
+  label = input.required<string>();
 
   constructor(public controlContainer: ControlContainer) { }
 
   get control(): FormControl {
-    return this.controlContainer.control?.get(this.controlName) as FormControl;
+    return this.controlContainer.control?.get(this.controlName()) as FormControl;
   }
 }

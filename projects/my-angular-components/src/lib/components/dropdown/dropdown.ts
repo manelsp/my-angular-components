@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -8,14 +8,14 @@ import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/for
   styleUrl: './dropdown.css'
 })
 export class MyComponentsDropdown {
-  @Input() label?: string;
-  @Input() placeholder: string = 'Selecciona una opción';
-  @Input() controlName!: string;
-  @Input() options: { value: string | number, label: string }[] = [];
+  label = input<string>();
+  placeholder = input<string>('Selecciona una opción');
+  controlName = input.required<string>();
+  options = input<{ value: string | number, label: string }[]>([]);
 
   constructor(public controlContainer: ControlContainer) { }
 
   get control(): FormControl {
-    return this.controlContainer.control?.get(this.controlName) as FormControl;
+    return this.controlContainer.control?.get(this.controlName()) as FormControl;
   }
 }

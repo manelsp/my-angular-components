@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input, computed } from '@angular/core';
 
 @Component({
   selector: 'my-components-avatar',
@@ -8,22 +8,21 @@ import { Component, Input } from '@angular/core';
   styleUrl: './avatar.css'
 })
 export class MyComponentsAvatar {
-  @Input() src?: string;
-  @Input() alt: string = 'Avatar';
-  @Input() size: 'small' | 'medium' | 'large' = 'medium';
-  @Input() border: boolean = true;
-  @Input() name?: string;
-  @Input() color?: string;     
-  @Input() textColor?: string; 
+  src = input<string>();
+  alt = input<string>('Avatar');
+  size = input<'small' | 'medium' | 'large'>('medium');
+  border = input<boolean>(true);
+  name = input<string>();
+  color = input<string>();     
+  textColor = input<string>(); 
 
-  get sizeClass(): string {
-    return this.size;
-  }
+  sizeClass = computed(() => this.size());
 
-  getInitial(): string {
-    if (this.name && this.name.length > 0) {
-      return this.name.charAt(0).toUpperCase();
+  getInitial = computed(() => {
+    const nameValue = this.name();
+    if (nameValue && nameValue.length > 0) {
+      return nameValue.charAt(0).toUpperCase();
     }
     return '?';
-  }
+  });
 }

@@ -1,7 +1,7 @@
 <div class="checkbox-wrapper" [class.invalid]="control.invalid && (control.dirty || control.touched)">
   <label>
     <input type="checkbox" [formControl]="control" />
-    {{ label }}
+    {{ label() }}
   </label>
 
   @if(control.invalid && (control.dirty || control.touched)){

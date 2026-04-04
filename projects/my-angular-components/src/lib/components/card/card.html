@@ -1,23 +1,23 @@
 <div class="card">
-    @if (imageSrc) {
-        @if(route){
-            <img [src]="imageSrc" [routerLink]="[route]" [alt]="imageAlt" class="card-image" />
+    @if (imageSrc()) {
+        @if(route()){
+            <img [src]="imageSrc()" [routerLink]="[route()]" [alt]="imageAlt()" class="card-image" />
         }@else {
-            <img [src]="imageSrc" [routerLink]="[route]" [alt]="imageAlt" class="card-image" />
+            <img [src]="imageSrc()" [routerLink]="[route()]" [alt]="imageAlt()" class="card-image" />
         }
     }
     <div class="card-content">
-        @if (title || subtitle) {
+        @if (title() || subtitle()) {
         <div class="card-header">
-            @if (title) {
-                @if(route){
-                    <h3 [routerLink]="[route]">{{ title }}</h3>
+            @if (title()) {
+                @if(route()){
+                    <h3 [routerLink]="[route()]">{{ title() }}</h3>
                 } @else {
-                    <h3>{{ title }}</h3>
+                    <h3>{{ title() }}</h3>
                 }
             }
-            @if (subtitle) {
-            <small>{{ subtitle }}</small>
+            @if (subtitle()) {
+            <small>{{ subtitle() }}</small>
             }
         </div>
         }

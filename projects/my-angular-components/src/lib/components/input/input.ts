@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -9,16 +9,16 @@ import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/for
   styleUrl: './input.css'
 })
 export class MyComponentsInput {
-  @Input() label!: string;
-  @Input() placeholder: string = '';
-  @Input() type: string = 'text';
-  @Input() controlName!: string;
-  @Input() autocomplete : undefined | 'name' | 'fullName' | 'firstName' | 'givenName' | 'middleName' | 'lastName' | 'surname' | 'postal-code' | 'familyName' | 'email' | 'phone' | 'tel' | 'phoneNumber' | 'username' | 'password' | 'address' | 'streetAddress' | 'city' | 'province' | 'state' | 'postalCode' | 'zip' | 'country' | 'birthdate';
-  @Input() variant: 'primary' | 'secondary' | 'neutral' = 'primary';
+  label = input.required<string>();
+  placeholder = input<string>('');
+  type = input<string>('text');
+  controlName = input.required<string>();
+  autocomplete = input<undefined | 'name' | 'fullName' | 'firstName' | 'givenName' | 'middleName' | 'lastName' | 'surname' | 'postal-code' | 'familyName' | 'email' | 'phone' | 'tel' | 'phoneNumber' | 'username' | 'password' | 'address' | 'streetAddress' | 'city' | 'province' | 'state' | 'postalCode' | 'zip' | 'country' | 'birthdate'>();
+  variant = input<'primary' | 'secondary' | 'neutral'>('primary');
 
   constructor(public controlContainer: ControlContainer) {}
 
   get control(): FormControl {
-    return this.controlContainer.control?.get(this.controlName) as FormControl;
+    return this.controlContainer.control?.get(this.controlName()) as FormControl;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, input, signal, effect, OnInit } from '@angular/core';
 import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -7,48 +7,42 @@ import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/for
   templateUrl: './file-upload.html',
   styleUrl: './file-upload.css'
 })
-export class MyComponentsFileUpload implements OnInit, OnChanges {
-  @Input() controlName!: string;
-  @Input() label!: string;
-  @Input() accept: string = '';
-  @Input() multiple: boolean = false;
+export class MyComponentsFileUpload implements OnInit {
+  controlName = input.required<string>();
+  label = input.required<string>();
+  accept = input<string>('');
+  multiple = input<boolean>(false);
 
-  previews: string[] = [];
+  previews = signal<string[]>([]);
 
   constructor(public controlContainer: ControlContainer) { }
 
   get control(): FormControl {
-    return this.controlContainer.control?.get(this.controlName) as FormControl;
+    return this.controlContainer.control?.get(this.controlName()) as FormControl;
+  }
+
+  get fileCount(): number {
+    const val = this.control.value;
+    if (val && this.multiple() && Array.isArray(val)) {
+      return val.length;
+    }
+    return 0;
   }
 
   public ngOnInit(): void {
     this.initializePreviews();
   }
 
-  public ngOnChanges(changes: SimpleChanges): void {
-    if (changes['controlName']) {
-      this.initializePreviews();
-    }
-  }
-
   private initializePreviews(): void {
     const value = this.control?.value;
 
     if (value) {
-      if (this.multiple && Array.isArray(value)) {
-        this.previews = value;
+      if (this.multiple() && Array.isArray(value)) {
+        this.previews.set(value);
       } else if (typeof value === 'string') {
-        this.previews = [value];
+        this.previews.set([value]);
       }
     }
-  }
-
-  get fileCount(): number {
-    const val = this.control.value;
-    if (val && this.multiple && Array.isArray(val)) {
-      return val.length;
-    }
-    return 0;
   }
 
   public onFileSelected(event: Event): void {
@@ -56,8 +50,8 @@ export class MyComponentsFileUpload implements OnInit, OnChanges {
     const files = input.files;
 
     if (!files || files.length === 0) {
-      this.control.setValue(this.multiple ? [] : null);
-      this.previews = [];
+      this.control.setValue(this.multiple() ? [] : null);
+      this.previews.set([]);
       return;
     }
 
@@ -68,14 +62,14 @@ export class MyComponentsFileUpload implements OnInit, OnChanges {
       reader.onload = e => {
         const base64 = e.target?.result as string;
 
-        if (this.multiple) {
+        if (this.multiple()) {
           const currentValues: string[] = this.control.value ?? [];
           const updatedValues = [...currentValues, base64];
           this.control.setValue(updatedValues);
-          this.previews = updatedValues;
+          this.previews.set(updatedValues);
         } else {
           this.control.setValue(base64);
-          this.previews = [base64];
+          this.previews.set([base64]);
         }
 
         this.control.markAsTouched();
@@ -87,22 +81,22 @@ export class MyComponentsFileUpload implements OnInit, OnChanges {
   }
 
   public removeFile(index: number): void {
-    if (this.multiple) {
+    if (this.multiple()) {
       const currentValues: string[] = [...this.control.value];
       currentValues.splice(index, 1);
       this.control.setValue(currentValues);
-      this.previews = currentValues;
+      this.previews.set(currentValues);
     } else {
       this.control.setValue(null);
-      this.previews = [];
+      this.previews.set([]);
     }
     this.control.markAsTouched();
   }
 
-  private draggedIndex: number | null = null;
+  private draggedIndex = signal<number | null>(null);
 
   public onDragStart(index: number): void {
-    this.draggedIndex = index;
+    this.draggedIndex.set(index);
   }
 
   public onDragOver(event: DragEvent): void {
@@ -110,21 +104,22 @@ export class MyComponentsFileUpload implements OnInit, OnChanges {
   }
 
   public onDrop(targetIndex: number): void {
-    if (this.draggedIndex === null || this.draggedIndex === targetIndex) {
+    const draggedIdx = this.draggedIndex();
+    if (draggedIdx === null || draggedIdx === targetIndex) {
       return;
     }
 
-    const previewsCopy = [...this.previews];
-    const [movedItem] = previewsCopy.splice(this.draggedIndex, 1);
+    const previewsCopy = [...this.previews()];
+    const [movedItem] = previewsCopy.splice(draggedIdx, 1);
     previewsCopy.splice(targetIndex, 0, movedItem);
-    this.previews = previewsCopy;
+    this.previews.set(previewsCopy);
 
     const controlValues = Array.isArray(this.control.value) ? [...this.control.value] : [];
-    const [movedValue] = controlValues.splice(this.draggedIndex, 1);
+    const [movedValue] = controlValues.splice(draggedIdx, 1);
     controlValues.splice(targetIndex, 0, movedValue);
     this.control.setValue(controlValues);
     this.control.markAsTouched();
 
-    this.draggedIndex = null;
+    this.draggedIndex.set(null);
   }
 }

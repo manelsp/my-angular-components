@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -8,14 +8,14 @@ import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/for
   styleUrl: './textarea.css'
 })
 export class MyComponentsTextarea {
-  @Input() controlName!: string;
-  @Input() label?: string;
-  @Input() placeholder: string = '';
-  @Input() rows: number = 4;
+  controlName = input.required<string>();
+  label = input<string>();
+  placeholder = input<string>('');
+  rows = input<number>(4);
 
   constructor(public controlContainer: ControlContainer) { }
 
   get control(): FormControl {
-    return this.controlContainer.control?.get(this.controlName) as FormControl;
+    return this.controlContainer.control?.get(this.controlName()) as FormControl;
   }
 }

@@ -1,13 +1,13 @@
 <div class="input-wrapper" [class.invalid]="control.invalid && (control.dirty || control.touched)">
-  @if(label){
-    <label>{{ label }}</label>
+  @if(label()){
+    <label>{{ label() }}</label>
   }  
   <input 
     [formControl]="control"
-    [attr.placeholder]="placeholder"
-    [type]="type"
-    [name]="autocomplete"
-    [ngClass]="variant"
+    [attr.placeholder]="placeholder()"
+    [type]="type()"
+    [name]="autocomplete()"
+    [ngClass]="variant()"
   />
   
   @if(control.invalid && (control.dirty || control.touched)) {

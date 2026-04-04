@@ -1,11 +1,11 @@
-<aside class="sidenav" [class.open]="isOpen" (click)="$event.stopPropagation()">
+<aside class="sidenav" [class.open]="isOpen()" (click)="$event.stopPropagation()">
   <div class="sidenav-header">
-    <span class="sidenav-title">{{title}}</span>
+    <span class="sidenav-title">{{title()}}</span>
   </div>
 
   <nav class="sidenav-links">
     <ul>
-      @for (route of routes; track $index) {
+      @for (route of routes(); track $index) {
       <li>
         <a [routerLink]="route?.path" (click)="close()"  [ngClass]="{ 'clickable': route?.path }"  routerLinkActive="active">{{ route?.label }}</a>
         @if(route.children?.length) {
@@ -27,6 +27,6 @@
   </div>
 </aside>
 
-@if(isOpen) {
+@if(isOpen()) {
 <div class="sidenav-overlay" (click)="close()"></div>
 }

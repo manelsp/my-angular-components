@@ -1,8 +1,8 @@
 <div class="badge-wrapper">
     <ng-content></ng-content>
-    @if(count !== null && count > 0){
+    @if(count() !== null && count()! > 0){
     <span class="badge">
-        {{ count > maxCount ? maxCount + '+' : count }}
+        {{ count()! > maxCount() ? maxCount() + '+' : count() }}
     </span>
     }
 </div>

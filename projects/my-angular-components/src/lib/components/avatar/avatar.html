@@ -1,14 +1,14 @@
-@if(src){
-  <img [src]="src"
-       [alt]="alt"
-       [ngClass]="[sizeClass, border ? 'with-border' : '']"
+@if(src()){
+  <img [src]="src()"
+       [alt]="alt()"
+       [ngClass]="[sizeClass(), border() ? 'with-border' : '']"
        class="avatar-img" />
 }
 @else {
-  <div [ngClass]="['avatar-placeholder', sizeClass, border ? 'with-border' : '']"
+  <div [ngClass]="['avatar-placeholder', sizeClass(), border() ? 'with-border' : '']"
        [ngStyle]="{
-         'background-color': color || 'var(--color-secondary)',
-         'color': textColor || 'var(--color-gray-50)'
+         'background-color': color() || 'var(--color-secondary)',
+         'color': textColor() || 'var(--color-gray-50)'
        }">
     {{ getInitial() }}
   </div>

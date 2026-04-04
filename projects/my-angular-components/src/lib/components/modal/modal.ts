@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'my-components-modal',
@@ -8,9 +8,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './modal.css'
 })
 export class MyComponentsModal {
-  @Input() visible = false;
-  @Input() size: 'small' | 'medium' | 'large' | 'larger ' = 'medium';
-  @Output() close = new EventEmitter<void>();
+  visible = input<boolean>(false);
+  size = input<'small' | 'medium' | 'large' | 'larger '>('medium');
+  close = output<void>();
 
   public onBackdropClick(): void {
     this.close.emit();

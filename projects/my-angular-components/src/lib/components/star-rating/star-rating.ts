@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 
 @Component({
   selector: 'my-components-star-rating',
@@ -7,33 +7,32 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './star-rating.css'
 })
 export class MyComponentsStarRating {
-  @Input() rating = 0;
-  @Input() maxStars = 5;
-  @Input() readonly = false;
-  @Input() votes = 0;
+  rating = input<number>(0);
+  maxStars = input<number>(5);
+  readonly = input<boolean>(false);
+  votes = input<number>(0);
 
-  @Output() ratingChange = new EventEmitter<number>();
+  ratingChange = output<number>();
 
-  hoverIndex = 0; 
+  hoverIndex = signal<number>(0); 
 
   starsArray(): number[] {
-    return Array(this.maxStars).fill(0);
+    return Array(this.maxStars()).fill(0);
   }
 
   setRating(value: number) {
-    if (!this.readonly) {
-      this.rating = value;
+    if (!this.readonly()) {
       this.ratingChange.emit(value);
     }
   }
 
   setHover(index: number) {
-    if (!this.readonly) {
-      this.hoverIndex = index;
+    if (!this.readonly()) {
+      this.hoverIndex.set(index);
     }
   }
 
   clearHover() {
-    this.hoverIndex = 0;
+    this.hoverIndex.set(0);
   }
 }

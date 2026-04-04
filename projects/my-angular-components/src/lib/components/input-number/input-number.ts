@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -8,16 +8,16 @@ import { ControlContainer, FormControl, ReactiveFormsModule } from '@angular/for
   styleUrl: './input-number.css'
 })
 export class MyComponentsInputNumber {
-@Input() label?: string;
-  @Input() placeholder: string = '';
-  @Input() min?: number;
-  @Input() max?: number;
-  @Input() controlName!: string;
+  label = input<string>();
+  placeholder = input<string>('');
+  min = input<number>();
+  max = input<number>();
+  controlName = input.required<string>();
 
   constructor(public controlContainer: ControlContainer) {}
 
   get control(): FormControl {
-    return this.controlContainer.control?.get(this.controlName) as FormControl;
+    return this.controlContainer.control?.get(this.controlName()) as FormControl;
   }
 
   public onInputChange(event: Event) {

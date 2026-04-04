@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BottomNavItem } from './bottom-nav.interface';
 
@@ -9,5 +9,5 @@ import { BottomNavItem } from './bottom-nav.interface';
   styleUrl: './bottom-nav.css'
 })
 export class MyComponentsBottomNav {
-  @Input() items: BottomNavItem[] = [];
+  items = input<BottomNavItem[]>([]);
 }

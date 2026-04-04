@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,10 +8,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './card.css'
 })
 export class MyComponentsCard {
-  @Input() image: string | undefined;
-  @Input() title: string | undefined;
-  @Input() subtitle: string | undefined;
-  @Input() route?: string | undefined;
-  @Input() imageSrc?: string;  
-  @Input() imageAlt: string = 'Card image';  
+  image = input<string>();
+  title = input<string>();
+  subtitle = input<string>();
+  route = input<string>();
+  imageSrc = input<string>();  
+  imageAlt = input<string>('Card image');  
 }

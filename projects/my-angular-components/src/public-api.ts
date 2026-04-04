@@ -7,6 +7,7 @@ export * from './lib/components/input-number/input-number';
 export * from './lib/components/dropdown/dropdown';
 export * from './lib/components/textarea/textarea';
 export * from './lib/components/checkbox/checkbox';
+export * from './lib/components/image-checkbox/image-checkbox';
 export * from './lib/components/datepicker/datepicker';
 export * from './lib/components/file-upload/file-upload';
 export * from './lib/components/counter-badge/counter-badge';

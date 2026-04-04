@@ -2,11 +2,50 @@
 <h2>Cards</h2>
 <hr>
 
+<h3>Tamaños de Cards</h3>
 <div class="flex-h">
-  <my-components-card [title]="'Title: Two Cats Crying'" [subtitle]="'Card subtitle'"
-    [imageSrc]="'images/cat.jpg'"></my-components-card>
-  <my-components-card-horitzontal [title]="'Title'" [subtitle]="'Card subtitle'"
-    [imageSrc]="'images/cat.jpg'"></my-components-card-horitzontal>
+  <my-components-card size="extra-small" [title]="'Extra Small'" [subtitle]="'XS Card'"
+    [imageSrc]="'images/cat.jpg'">
+    <p>XS</p>
+  </my-components-card>
+
+  <my-components-card size="small" [title]="'Small Card'" [subtitle]="'Card pequeña'"
+    [imageSrc]="'images/cat.jpg'">
+    <p>Contenido de la card pequeña.</p>
+  </my-components-card>
+
+  <my-components-card size="medium" [title]="'Medium Card'" [subtitle]="'Card mediana'"
+    [imageSrc]="'images/cat.jpg'">
+    <p>Contenido de la card mediana.</p>
+  </my-components-card>
+
+  <my-components-card size="large" [title]="'Large Card'" [subtitle]="'Card grande'"
+    [imageSrc]="'images/cat.jpg'">
+    <p>Contenido de la card grande con más espacio para información.</p>
+  </my-components-card>
+</div>
+
+<h3>Cards Horizontales</h3>
+<div class="flex-v">
+  <my-components-card-horitzontal size="extra-small" [title]="'Extra Small'" [subtitle]="'XS horizontal'"
+    [imageSrc]="'images/cat.jpg'">
+    <p>XS horizontal.</p>
+  </my-components-card-horitzontal>
+
+  <my-components-card-horitzontal size="small" [title]="'Small Horizontal'" [subtitle]="'Card horizontal pequeña'"
+    [imageSrc]="'images/cat.jpg'">
+    <p>Contenido horizontal pequeño.</p>
+  </my-components-card-horitzontal>
+
+  <my-components-card-horitzontal size="medium" [title]="'Medium Horizontal'" [subtitle]="'Card horizontal mediana'"
+    [imageSrc]="'images/cat.jpg'">
+    <p>Contenido horizontal mediano.</p>
+  </my-components-card-horitzontal>
+
+  <my-components-card-horitzontal size="large" [title]="'Large Horizontal'" [subtitle]="'Card horizontal grande'"
+    [imageSrc]="'images/cat.jpg'">
+    <p>Contenido horizontal grande con más espacio para mostrar información detallada.</p>
+  </my-components-card-horitzontal>
 </div>
 
 <!-- Modals -->

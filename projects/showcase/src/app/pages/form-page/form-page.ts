@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MyComponentsButton } from '../../../../../my-angular-components/src/lib/components/button/button';
 import { MyComponentsCheckbox } from '../../../../../my-angular-components/src/lib/components/checkbox/checkbox';
+import { MyComponentsImageCheckbox } from '../../../../../my-angular-components/src/lib/components/image-checkbox/image-checkbox';
 import { MyComponentsDatepicker } from '../../../../../my-angular-components/src/lib/components/datepicker/datepicker';
 import { MyComponentsDropdown } from '../../../../../my-angular-components/src/lib/components/dropdown/dropdown';
 import { MyComponentsFileUpload } from '../../../../../my-angular-components/src/lib/components/file-upload/file-upload';
@@ -18,6 +19,7 @@ import { MyComponentsTextarea } from '../../../../../my-angular-components/src/l
     MyComponentsDropdown,
     MyComponentsTextarea,
     MyComponentsCheckbox,
+    MyComponentsImageCheckbox,
     MyComponentsDatepicker,
     MyComponentsFileUpload,
     MyComponentsButton,
@@ -37,6 +39,21 @@ export class FormPage {
     { value: 'it', label: 'Italia' },
   ];
 
+  public supermarketOptions = [
+    { value: 'mercadona', label: 'Mercadona', imageSrc: 'https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/25023219545/original/a4AatF9iPslEMP1nQcBhP1UeVFCKO__Udg.jpg?1619020919', alt: 'Mercadona logo' },
+    { value: 'carrefour', label: 'Carrefour', imageSrc: 'https://www.cclasrosas.es/wp-content/uploads/2017/12/logo-carrefour.jpg', alt: 'Carrefour logo' },
+    { value: 'lidl', label: 'Lidl', imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Lidl-Logo.svg/200px-Lidl-Logo.svg.png', alt: 'Lidl logo' },
+    { value: 'dia', label: 'Día', imageSrc: 'https://www.hoyodemanzanares.es/wp-content/uploads/2020/08/dia-market-logo-500x500.png', alt: 'Día logo' },
+    { value: 'alcampo', label: 'Alcampo', imageSrc: 'https://brandemia.org/sites/default/files/sites/default/files/auchan_simbolo3.jpg', alt: 'Alcampo logo' },
+    { value: 'eroski', label: 'Eroski', imageSrc: 'https://images.seeklogo.com/logo-png/17/1/eroski-logo-png_seeklogo-173749.png', alt: 'Eroski logo' },
+  ];
+
+  public brandOptions = [
+    { value: 'nike', label: 'Nike', imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/200px-Logo_NIKE.svg.png', alt: 'Nike logo' },
+    { value: 'adidas', label: 'Adidas', imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/200px-Adidas_Logo.svg.png', alt: 'Adidas logo' },
+    { value: 'puma', label: 'Puma', imageSrc: 'https://static.vecteezy.com/system/resources/previews/020/336/032/non_2x/puma-logo-puma-icon-free-free-vector.jpg', alt: 'Puma logo' },
+  ];
+
   constructor(private fb: FormBuilder) { }
 
   public ngOnInit(): void {
@@ -48,7 +65,9 @@ export class FormPage {
       acceptTerms: [false, Validators.requiredTrue],
       birthdate: ['', Validators.required],
       color: ['', Validators.required],
-      photos: [[this.base64Image], Validators.required]
+      photos: [[this.base64Image], Validators.required],
+      supermarkets: [[], Validators.required],
+      favoriteBrand: ['', Validators.required]
     });
   }
 

@@ -43,6 +43,25 @@
     <span error>Debes aceptar los términos</span>
   </my-components-checkbox>
 
+  <!-- Image Checkbox - Multiple selection -->
+  <h3>Selecciona tus supermercados favoritos</h3>
+  <my-components-image-checkbox 
+    controlName="supermarkets" 
+    [options]="supermarketOptions" 
+    [multiple]="true"
+    size="medium">
+    <span error>Debes seleccionar al menos un supermercado</span>
+  </my-components-image-checkbox>
+
+  <!-- Image Checkbox - Single selection -->
+  <h3>Selecciona tu marca favorita</h3>
+  <my-components-image-checkbox 
+    controlName="favoriteBrand" 
+    [options]="brandOptions" 
+    [multiple]="false"
+    size="large">
+    <span error>Debes seleccionar una marca</span>
+  </my-components-image-checkbox>
 
 
   <!-- FileUpload -->

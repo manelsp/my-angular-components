@@ -1,0 +1,31 @@
+<div class="image-checkbox-wrapper" [class.invalid]="control.invalid && (control.dirty || control.touched)">
+  <div class="image-checkbox-grid" [ngClass]="size()">
+    @for (option of options(); track option.value) {
+      <div 
+        class="image-checkbox-item"
+        [class.selected]="isSelected(option.value)"
+        (click)="toggleSelection(option.value)">
+        <div class="image-container">
+          <img 
+            [src]="option.imageSrc" 
+            [alt]="option.alt || option.label || 'Image option'" 
+            class="checkbox-image" />
+          <div class="checkmark" [class.visible]="isSelected(option.value)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+          </div>
+        </div>
+        @if(option.label) {
+          <span class="image-label">{{ option.label }}</span>
+        }
+      </div>
+    }
+  </div>
+
+  @if(control.invalid && (control.dirty || control.touched)){
+    <div class="error">
+      <ng-content select="[error]"></ng-content>
+    </div>
+  }
+</div>
